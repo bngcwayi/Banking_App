@@ -1,0 +1,254 @@
+CONTROL_FLOW_Week02-30Oct-03-Nov2023 
+WEEK02:CONTROL FLOW 
+DAY 1:CONTROL FLOW 
+
+OBJECTIVE 
+The objective is to allow you to understand how Python works and how the Python interpreter reads commands from the screen. 
+
+WHAT ARE CONTROL FLOW STATEMENTS 
+A program’s control flow is the order in which the program’s code executes. 
+The control flow of a Python program is regulated by conditional statements, loops, and function calls. 
+Python has 3 types of control structures: 
+SEQUENTIAL 
+Is the default working of a program  
+Sequential statements are a set of statements whose execution process happens in a sequence  
+The problem with sequential statements is that if the logic has broken in any one of the lines, then the complete source code execution will break. 
+A diagram of a flowchart
+Description automatically generated 
+
+2.SELECTION/DECISION 
+
+Selection statements are also known as Decision statements or branching statements 
+Their fundamental role is to make decisions 
+The selection statement allows a program to test several conditions and execute instructions based on which condition is true. 
+A diagram of a selection
+Description automatically generated 
+Some Decision Control Statements are: 
+1.Simple if=If statements in Python are called control flow statements. The selection statements assist us in running a certain piece of code, but only in certain circumstances. There is only one condition to test in a basic if statement. 
+2.if-else 
+
+3.nested if=if statements nested within another if statement 
+
+4.if-elif-else 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3.REPETITION 
+
+Repetition statement is used to repeat a group[block] of programming instructions 
+
+Repetition is used for looping,- which is repeating a piece of code multiple times in a row 
+
+1.WHILE LOOP 
+
+2.DO WHILE LOOP 
+
+3. FOR LOOP 
+
+DAY 2_PYTHON FUNCTIONS 
+
+Lots of programs have to do the same thing again and again. Doing this by copying the code each time is not efficient and uses up memory. Instead, you can make a function that contains the repeated code, and you can use this function whenever you need to do that operation.  
+
+We create functions by providing three pieces of information. The name of the function, a list of zero or more parameters, and, optionally, a block of code which provides the return value (a function can return nothing). 
+
+In Python a function is defined using the def keyword: eg below 
+
+Eg  
+
+A white background with black text
+
+Description automatically generated 
+
+To call a function, use the function name followed by parenthesis: 
+
+Eg 
+
+A white rectangular box with black text
+
+Description automatically generated			 
+
+The terms parameter and argument can be used for the same thing: information that are passed into a function 
+
+From a function's perspective: A parameter is the variable listed inside the parentheses in the function definition. 
+
+An argument is the value that is sent to the function when it is called. 
+
+If a function is expecting 2 arguments, then have 2 arguments, if 1 or 3 arguments are used then the function will throw an error 
+
+There are three types of functions in Python: 
+
+1.ORDINARY FUNCTIONS 
+
+Ordinary functions are functions that follow mathematical procedures.  
+
+They will receive an argument, perform a specific calculation with the argument, and return a result. 
+
+ 
+
+2.PROCEDURE FUNCTIONS 
+
+Procedure functions normally do not return a result; they are called to execute a procedure.  
+
+For example a function can be created to set up a connection to a database. 
+
+ 
+
+3.FACTORY FUNCTIONS 
+
+Factory functions do not take parameters.  
+
+The function generates values. Some factory functions work by accessing an object encapsulated in a module. For example, you will access the random number generator encapsulated in the random module. 
+
+Recursive functions 
+
+Recursion in programming is like solving a puzzle where the answer to one part of the puzzle is based on solving another part of the same puzzle.  
+
+In a computer program, a recursive function is a special type of function that, when it runs, can call itself to solve smaller pieces of the problem. It keeps doing this until it reaches a point where it can give a direct answer without needing to call itself again. This approach can be used to solve complex problems by breaking them down into simpler, similar sub-problems. 
+
+ 
+
+DAY 3:INTRODUCTION TO MODULES 
+
+OBJECTIVES 
+
+Understand the different Modules that Python uses. 
+
+Know the differences between the types of Modules. 
+
+Be able to write programs that require input and conversions. 
+
+PYTHON MODULES 
+
+As a program grows bigger, it may contain many lines of code. Instead of putting everything in a single file, we can use Modules to separate codes in separate files according to their functionality 
+
+This makes the code organised and easy to maintain 
+
+Module is a file that contains code to perform a specific task 
+
+A module may contain variables, classes, functions 
+
+Modules can also be termed as Libraries 
+
+Modules bind the code and reduce the repetitions of functions frequently used in the code. Thus, it makes the code much clear and easy to understand. 
+
+Create a Module 
+
+To create a module just save the code you want in a file with the file extension .py: 
+
+TYPES OF MODULES 
+
+Built in Modules  
+
+There are several built in modules in Python that provide different functionalities.  
+
+These modules are libraries of pre-written code that can be imported and used in Python programs. 
+
+Built in modules in Python are pre-written libraries of code that come bundled with the Python programming language. 
+
+Some commonly used built-in modules include: 
+
+OS module =for interacting with the operating system 
+
+Datetime module= for working with dates and times 
+
+Math module =for mathematical operations 
+
+Csv module =for reading and writing CSV files 
+
+JSON module =for working with JSON data 
+
+ 
+
+User-Defined Module= 
+
+a user-defined module is a Python script (a .py file) that contains a collection of functions, variables, and classes that can be imported and used in other Python scripts.  
+
+These modules are created by users to organize and modularize their code, making it easier to reuse and maintain.  
+
+MECHANISM OF PYTHON MODULE 
+
+Python Standard Path=Python's "sys.path" is a list that represents the locations where Python searches for modules and packages when you try to import them in your code.  
+
+It's a list of directory paths that Python uses to find the modules that you want to import.  
+
+Module can be imported from program directory or list the modules available from the command centre using help("module") 
+
+IMPORTING MODULE 
+
+How to Use a Module 
+
+Now we can use the module we just created, by using the import statement: 
+
+Eg import_module name eg import_math 
+
+ 
+
+Difference between a module and a package in Python 
+
+>>>>Python Module: These are set of pre-defined files that contain the python codes which depict the basic functionalities of class, methods, variables, etc 
+
+>>>>>Python Package: It is a directory that holds and contains modules and sub-packages. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DAY 4:REGULAR EXPRESSIONS 
+
+OBJECTIVES 
+
+Be able to manipulate strings to a certain format. 
+
+Understand grouping and capturing. 
+
+Understand assertions and flags 
+
+The objective is to allow you to understand how Regular Expression work and are used in programs 
+
+INTRODUCTION TO REGULAR EXPRESSIONS 
+
+A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern. 
+
+RegEx can be used to check if a string contains the specified search pattern 
+
+They provide a way to search, match, and manipulate strings based on patterns and rules. 
+
+ Regular expressions are used in various programming tasks, such as text processing, data validation, and pattern matching.  
+
+Python provides a built-in module called re for working with regular expressions.   
+
+Regular expressions, or regexes, are like special tools that help us do five main things: 
+
+Parsing: We can use regexes to find and pick out specific pieces of text that match certain rules or patterns. 
+
+Searching: They're handy for looking for parts of text that might have different forms but follow a general pattern, like finding files with different extensions like 'pet.png', 'pet.gif', and 'pet.mpg' but not 'carpet.gif'.  
+
+Search and Replace: We can find specific parts of text and change them to something else. For example, replacing phone numbers like '071 234 5678' with the international format '+2771 234 5678'.  
+
+Splitting Strings: You can use regexes to chop up a text into smaller pieces wherever a specific character or pattern appears. For instance, splitting a long list of items separated by commas 
+
+Validation: They help us check if a piece of text follows certain rules. For example, making sure an email address is correctly formatted. 
+
+However, regexes have their limitations:  
+
+They can only handle repeating patterns in text if we know how many times they repeat. 
+
+When regexes become very long and complicated, they can be hard to understand and maintain. 
+
+ 
