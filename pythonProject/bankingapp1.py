@@ -1,4 +1,4 @@
-import re
+import re # module for regular expressions, for our password.
 import datetime # shows timestamps and date for transactions.
 import hashlib # it masks the user's password, into hash characters.
 
@@ -107,7 +107,7 @@ def login():
         print("Invalid username or password. Login failed.")
         return None
 
-# This function prints these options
+# This function prints these options,and is a recursive function.
 def main():
     while True:
         print("++++++++++++++++++++++++")
