@@ -1,31 +1,28 @@
-import re # module for regular expressions, for our password.
-import datetime # shows timestamps and date for transactions.
-import hashlib # it masks the user's password, into hash characters.
+import re
+import datetime
+import hashlib
+import random
+import string
 
-# this class stores the user bank account info
 class BankAccount:
     accounts = []
 
     def __init__(self, username, password, account_type):
         self.username = username
-        self.password_hash = self._hash_password(password) # password input masker.
+        self.password_hash = self._hash_password(password)
         self.balance = 0
         self.account_type = account_type
         self.transactions = []
         BankAccount.accounts.append(self)
         self._write_to_file(username, self.password_hash)
 
-
     def _hash_password(self, password):
-        # Use hashlib to securely hash the password
         return hashlib.sha256(password.encode()).hexdigest()
 
-# takes user's username and password, and records into the txt file.
     def _write_to_file(self, username, password_hash):
         with open("bank_data.txt", "a") as file:
             file.write(f"{username}:{password_hash}\n")
 
-# check for user account
     @classmethod
     def get_account_by_username(cls, username):
         for account in cls.accounts:
@@ -33,17 +30,14 @@ class BankAccount:
                 return account
         return None
 
-# check user account balance
     def check_balance(self):
         return f"Current balance: R {self.balance}"
 
-# to deposit money in user account and also record the transaction
     def deposit(self, amount):
         self.balance += amount
         self.log_transaction("Deposit", amount)
         return f"Deposited R {amount}. \nCurrent balance: R {self.balance}"
 
-# to withdraw money from user account and also record the transaction
     def withdraw(self, amount):
         if amount <= self.balance:
             self.balance -= amount
@@ -52,49 +46,64 @@ class BankAccount:
         else:
             return "Insufficient funds. Withdrawal denied."
 
-# this logs the user transaction with the timestamp to the transaction_log.txt file
-    def log_transaction(self, transaction_type, amount):
+    def log_transaction(self, transaction_type, amount): #writes user input data to txt file
         timestamp = datetime.datetime.now()
         transaction_info = f"{timestamp}: {transaction_type} of R{amount}"
         self.transactions.append(transaction_info)
         with open("transaction_log.txt", "a") as file:
-            file.write(f"{self.username}: \n{transaction_info}\n")
+            file.write(f" Transaction History for: {self.username}: \n{transaction_info}\n")
 
-# regular expressions for password validation
-def is_valid_password(password):
+def is_valid_password(password): # validation of password
     return re.match(r"^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]).{8,}$", password) is not None
 
-# welcoming message and request username input
+def generate_password(): # generates random password.
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(12))
+    return password
+
 def create_account():
     print("++++++++++++++++++++")
     print("Welcome to BugBank!")
     print("++++++++++++++++++++")
     username = input("Enter your username: ")
 
-# checks for password validation, if a username already exists, whether user selects cheque(1) or savings(2) account
-    # if user enters the wrong required input, it will catch an error.
-    while True:
-        password = input("Enter your password (at least 8 characters with 1 number, 1 capital letter, and 1 special character): ")
-        if is_valid_password(password):
-            existing_account = BankAccount.get_account_by_username(username)
-            if existing_account:
-                print("Username already exists. Please choose a different username.")
-            else:
-                account_type = input("Choose account type (1 for Cheque, 2 for Savings): ")
-                if account_type == "1":
-                    account = BankAccount(username, password, "Cheque")
-                    print(f"Checking account created for {username}.")
-                    return account
-                elif account_type == "2":
-                    account = BankAccount(username, password, "Savings")
-                    print(f"Savings account created for {username}.")
-                    return account
-                else:
-                    print("Invalid account type choice. Please choose 1 for Cheque or 2 for Savings.")
-        else:
-            print("Invalid password. Please try again.")
+    generated_password = generate_password()
+    print(f"Generated password: {generated_password}")
 
-# if the user tries to login the account and if the password is invalid an error message pops up.
+    while True:
+        choice = input("Do you want to use the generated password? (yes/no): ").lower()
+        if choice == "yes":
+            password = generated_password
+            break
+        elif choice == "no":
+            password = input("Enter your password (at least 8 characters with 1 number, 1 capital letter, and 1 special character): ")
+            if not is_valid_password(password):
+                print("Invalid password format. Please try again.")
+                continue
+            confirm_password = input("Confirm your password: ")
+            if password != confirm_password:
+                print("Passwords do not match. Please try again.")
+                continue
+            break
+        else:
+            print("Invalid choice. Please enter 'yes' or 'no'.")
+
+    existing_account = BankAccount.get_account_by_username(username)
+    if existing_account:
+        print("Username already exists. Please choose a different username.")
+    else:
+        account_type = input("Choose account type (1 for Cheque, 2 for Savings): ")
+        if account_type == "1":
+            account = BankAccount(username, password, "Cheque")
+            print(f"Checking account created for {username}.")
+            return account
+        elif account_type == "2":
+            account = BankAccount(username, password, "Savings")
+            print(f"Savings account created for {username}.")
+            return account
+        else:
+            print("Invalid account type choice. Please choose 1 for Cheque or 2 for Savings.")
+
 def login():
     username = input("Enter your username: ")
     password = input("Enter your password: ")
@@ -107,7 +116,6 @@ def login():
         print("Invalid username or password. Login failed.")
         return None
 
-# This function prints these options,and is a recursive function.
 def main():
     while True:
         print("++++++++++++++++++++++++")
@@ -123,7 +131,6 @@ def main():
         print("7. Exit")
         choice = input("Enter your choice: ")
 
-# If user enters a number outside the option it will request the user to put the valid option
         if choice == "1":
             account = create_account()
             if account:
@@ -168,7 +175,6 @@ def main():
                 print(f"Username: {acc.username}, Account Type: {acc.account_type}, \nBalance: R {acc.balance}")
         else:
             print("Invalid choice. Please choose a valid option.")
-
 
 if __name__ == "__main__":
     main()

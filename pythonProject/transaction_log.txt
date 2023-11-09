@@ -19,3 +19,15 @@ Tsele:
 2023-10-31 23:50:06.791079: Deposit of R4000.0
 Tshepo : 
 2023-11-02 23:47:31.726890: Deposit of R450.0
+Tshepo: 
+2023-11-09 10:59:51.932581: Deposit of R5000.0
+Tshepo: 
+2023-11-09 10:59:58.892666: Withdrawal of R4890.0
+Nasi: 
+2023-11-09 11:01:59.009285: Deposit of R5000.0
+ Transaction History for: Tshwpo: 
+2023-11-09 11:15:00.814242: Deposit of R5000.0
+ Transaction History for: {self.username}: 
+{transaction_info}
+ Transaction History for: Tshepo: 
+2023-11-09 11:17:47.965937: Deposit of R4300.0
