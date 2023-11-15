@@ -5,6 +5,7 @@ import datetime
 import hashlib
 import random
 import string
+import pyperclip  # Add this import for clipboard functionality
 
 
 class BankAccount:
@@ -61,6 +62,8 @@ def is_valid_password(password):
 def generate_password():
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(12))
+    # Copy the generated password to the clipboard
+    pyperclip.copy(password)
     return password
 
 
@@ -143,13 +146,6 @@ class BankAppGUI:
                 messagebox.showerror("Error", "Invalid choice. Please enter 'yes' or 'no'.")
         else:
             messagebox.showerror("Error", "Username not found. Please enter a valid username.")
-<<<<<<< Updated upstream
-            return
-
-
-        
-=======
->>>>>>> Stashed changes
 
     def create_account(self):
         create_account_window = tk.Toplevel(self.master)
@@ -203,14 +199,14 @@ class BankAppGUI:
         login_window.configure(bg='light blue', width=30, padx=15, pady=15)
 
         login_username_label = tk.Label(login_window, text="Username:")
-        login_username_label.pack(pady=5)
+        login_username_label.pack(pady=10)
         login_username = tk.Entry(login_window)
-        login_username.pack(pady=5)
+        login_username.pack(pady=10)
 
         login_password_label = tk.Label(login_window, text="Password:")
-        login_password_label.pack(pady=5)
+        login_password_label.pack(pady=10)
         login_password = tk.Entry(login_window, show="*")
-        login_password.pack(pady=5)
+        login_password.pack(pady=10)
 
         login_button = tk.Button(login_window, text="Login", command=lambda: self.login_user(login_username.get(), login_password.get(), login_window))
         login_button.pack(pady=10)
@@ -234,7 +230,8 @@ class BankAppGUI:
                 try:
                     amount = float(amount)
                     if amount > 0:
-                        messagebox.showinfo("Deposit", self.current_account.deposit(amount))
+                        result = self.current_account.deposit(amount)
+                        messagebox.showinfo("Deposit", result)
                     else:
                         messagebox.showerror("Error", "Invalid amount. Please enter a positive number.")
                 except ValueError:
@@ -249,7 +246,8 @@ class BankAppGUI:
                 try:
                     amount = float(amount)
                     if amount > 0:
-                        messagebox.showinfo("Withdrawal", self.current_account.withdraw(amount))
+                        result = self.current_account.withdraw(amount)
+                        messagebox.showinfo("Withdrawal", result)
                     else:
                         messagebox.showerror("Error", "Invalid amount. Please enter a positive number.")
                 except ValueError:
