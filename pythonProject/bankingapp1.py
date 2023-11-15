@@ -179,6 +179,9 @@ class BankAppGUI:
         else:
             messagebox.showerror("Error", "Username not found. Please enter a valid username.")
 
+            self.master.wait_window(top)
+            return var.get()
+
 
         
 
