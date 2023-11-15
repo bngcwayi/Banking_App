@@ -31,3 +31,5 @@ Nasi:
 {transaction_info}
  Transaction History for: Tshepo: 
 2023-11-09 11:17:47.965937: Deposit of R4300.0
+ Transaction History for: barbie: 
+2023-11-15 22:48:14.848829: Deposit of R200.0
