@@ -173,14 +173,29 @@ class BankAppGUI:
 
         account = BankAccount.get_account_by_username(username)
         if account:
-            new_password = generate_password()
-            account.password_hash = account._hash_password(new_password)
-            messagebox.showinfo("Password Reset", f"Password reset successful!\nNew password: {new_password}")
+            choice = self.show_input_dialog(
+                f"Do you want to reset password with a generated password?\n\nYes/No:").lower()
+            if choice == "yes":
+                new_password = generate_password()
+                account.password_hash = account._hash_password(new_password)
+                messagebox.showinfo("Password Reset", f"Password reset successful!\nNew password: {new_password}")
+            elif choice == "no":
+                new_password = self.show_input_dialog(
+                    "Enter your new password (at least 8 characters with 1 number, 1 capital letter, and 1 special character):")
+                if not is_valid_password(new_password):
+                    messagebox.showerror("Error", "Invalid password format. Please try again.")
+                    return
+                confirm_password = self.show_input_dialog("Confirm your new password:", password=True)
+                if new_password != confirm_password:
+                    messagebox.showerror("Error", "Passwords do not match. Please try again.")
+                    return
+                account.password_hash = account._hash_password(new_password)
+                messagebox.showinfo("Password Reset", "Password reset successful!")
+            else:
+                messagebox.showerror("Error", "Invalid choice. Please enter 'yes' or 'no'.")
         else:
             messagebox.showerror("Error", "Username not found. Please enter a valid username.")
-
-            self.master.wait_window(top)
-            return var.get()
+            return
 
 
         
