@@ -1,0 +1,16 @@
+ Transaction History for: Likhaya: 
+2023-11-13 14:03:34.304009: Deposit of R5000.0
+ Transaction History for: LiKhaya: 
+2023-11-13 15:06:06.734625: Deposit of R5000.0
+ Transaction History for: Likhaya7: 
+2023-11-15 09:31:28.665824: Deposit of R250.0
+ Transaction History for: Likhaya7: 
+2023-11-15 14:22:58.437013: Deposit of R5000.0
+ Transaction History for: Likhaya7: 
+2023-11-15 14:23:04.610276: Withdrawal of R5.0
+ Transaction History for: Likhaya7: 
+2023-11-15 14:43:54.393129: Deposit of R5000.0
+ Transaction History for: Likhaya7: 
+2023-11-15 14:43:59.423879: Withdrawal of R4000.0
+ Transaction History for: Likhaya7: 
+2023-11-15 14:44:24.329057: Withdrawal of R5.0
