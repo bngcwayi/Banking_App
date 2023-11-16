@@ -73,36 +73,36 @@ class BankAppGUI:
         self.label = tk.Label(master, text="Bug Bank Limited", font=("Helvetica Bold", 16))
         self.label.pack(pady=10)
         self.button_create_account = tk.Button(
-            master, text="Create Account", command=self.create_account, bg="green", fg="white"
+            master, text="Create Account", command=self.create_account, bg="green", fg="white", width="20"
         )
         self.button_create_account.pack(pady=5)
-        self.button_login = tk.Button(master, text="Login", command=self.login, bg="green", fg="white")
+        self.button_login = tk.Button(master, text="Login", command=self.login, bg="green", fg="white", width="20")
         self.button_login.pack(pady=5)
         self.button_deposit = tk.Button(
-            master, text="Deposit", command=self.deposit, width=15, bg="teal", fg="black"
+            master, text="Deposit", command=self.deposit, width=18, bg="teal", fg="black"
         )
         self.button_deposit.pack(pady=5)
         self.button_withdraw = tk.Button(
-            master, text="Withdraw", command=self.withdraw, width=15, bg="teal", fg="black"
+            master, text="Withdraw", command=self.withdraw, width=18, bg="teal", fg="black"
         )
         self.button_withdraw.pack(pady=5)
         self.button_check_balance = tk.Button(
-            master, text="Check Balance", command=self.check_balance, bg="teal", fg="black"
+            master, text="Check Balance", command=self.check_balance, bg="teal", fg="black", width="18"
         )
         self.button_check_balance.pack(pady=5)
         self.button_show_transactions = tk.Button(
-            master, text="Show Transactions", command=self.show_transactions, bg="teal", fg="black"
+            master, text="Show Transactions", command=self.show_transactions, bg="teal", fg="black", width="18"
         )
         self.button_show_transactions.pack(pady=5)
         self.button_account_list = tk.Button(
-            master, text="Account Holder List", command=self.account_list, bg="teal", fg="black"
+            master, text="Account Holder List", command=self.account_list, bg="teal", fg="black", width="18"
         )
         self.button_account_list.pack(pady=5)
         self.button_forgot_password = tk.Button(
-            master, text="Forgot Password?", command=self.forgot_password, bg="orange", fg="black"
+            master, text="Forgot Password?", command=self.forgot_password, bg="orange", fg="black", width="15"
         )
         self.button_forgot_password.pack(pady=5)
-        self.button_exit = tk.Button(master, text="Exit", command=self.exit_program, bg="red", fg="white")
+        self.button_exit = tk.Button(master, text="Exit", command=self.exit_program, bg="red", fg="white", width="15")
         self.button_exit.pack(pady=5)
         self.current_account = None
     def toggle_eye(self, entry):
